@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /wishlist
+Disallow: /track
+Disallow: /search/suggestions
+Disallow: /up
+Disallow: /contact-messages
+Disallow: /*?search=
+
+Sitemap: https://www.libasbd.com/sitemap.xml
