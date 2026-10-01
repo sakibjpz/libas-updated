@@ -291,7 +291,7 @@
                             @endif
                             
                             <div class="btn-group w-100 mt-3" role="group">
-                                <a href="javascript:void(0)" class="btn btn-secondary" onclick="window.print()">
+                                <a href="{{ route('admin.orders.print', $order) }}" class="btn btn-secondary" target="_blank">
                                     <i class="fas fa-print"></i> Print Invoice
                                 </a>
                                 <a href="{{ route('admin.orders.index') }}" class="btn btn-default">

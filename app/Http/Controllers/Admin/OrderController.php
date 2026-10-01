@@ -33,6 +33,13 @@ public function index(Request $request)
         return view('admin.orders.show', compact('order'));
     }
 
+    // Printable invoice for an order
+    public function printInvoice(Order $order)
+    {
+        $order->load('orderItems.product');
+        return view('admin.orders.print', compact('order'));
+    }
+
     public function updateStatus(Request $request, Order $order)
 {
     $request->validate([

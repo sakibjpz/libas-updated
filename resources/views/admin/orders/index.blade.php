@@ -95,7 +95,7 @@
                                         <span class="badge badge-info">{{ $itemsCount }} item(s)</span>
                                     </td>
                                     <td>
-                                        <strong class="text-success">${{ number_format($order->total, 2) }}</strong>
+                                        <strong class="text-success">৳{{ number_format($order->total, 2) }}</strong>
                                     </td>
                                     <td>
                                         @php
@@ -156,7 +156,8 @@
                                             <!-- Quick Status Update Dropdown -->
                                             <div class="btn-group" role="group">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" 
-                                                        data-toggle="dropdown" 
+                                                        data-bs-toggle="dropdown"
+                                                        data-bs-auto-close="outside"
                                                         aria-haspopup="true" 
                                                         aria-expanded="false"
                                                         title="Update Status">
@@ -168,7 +169,7 @@
                                                         @csrf
                                                         @method('PATCH')
                                                         <div class="form-group mb-2">
-                                                            <select name="status" class="form-control form-control-sm" onchange="this.form.submit()">
+                                                            <select name="status" data-current="{{ $order->status }}" class="form-control form-control-sm">
                                                                 <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending</option>
                                                                 <option value="processing" {{ $order->status == 'processing' ? 'selected' : '' }}>Processing</option>
                                                                 <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Shipped</option>
@@ -180,10 +181,10 @@
                                                 </div>
                                             </div>
                                             
-                                           <a href="javascript:void(0)" 
+                                           <a href="{{ route('admin.orders.print', $order) }}" 
    class="btn btn-secondary" 
    title="Print Order"
-   onclick="window.print()">
+   target="_blank">
     <i class="fas fa-print"></i>
 </a>
                                         </div>
